@@ -6,5 +6,5 @@ export const HeroesApp = () => {
         <AppRouter/>
     )
 }
-
+    
 export default HeroesApp;
