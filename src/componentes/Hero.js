@@ -14,7 +14,7 @@ export const Hero = ({ hero }) => {
       ></img>
       <div className="card-body">
         <h4>{hero.superhero}</h4>
-        {user?.id &&
+        {user?.id &&    
 
          <button
           className={`btn ${
