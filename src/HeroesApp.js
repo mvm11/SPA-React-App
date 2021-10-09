@@ -1,21 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Heroes from "./componentes/Heroes";
 import Navbar from "./componentes/Navbar";
-import UserContext from "./contexts/UserContext";
+import { UserProvider } from "./contexts/UserContext";
 
-export const HeroesApp = () => {
-    const user = {
-        id: 1,
-        name: 'Mateo',
-        favoriteHeroes: [1,2,3]
-    }
-  const data = {user};
+export const HeroesApp = () => {     
   return (
     <div>
-      <UserContext.Provider value={data}>
+      <UserProvider>
         <Navbar />
         <Heroes />
-      </UserContext.Provider>
+      </UserProvider>
     </div>
   );
 };
