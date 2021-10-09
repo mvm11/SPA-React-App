@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 export const Hero = ({ hero }) => {
-  const isFavorite = false;
+  const { user, toggleFavoriteHeroToUser } = useContext(UserContext);
+  const isFavorite = user?.favoriteHeroes?.includes(hero.id);
   return (
     <div className="card m-4">
       <img
@@ -11,15 +14,19 @@ export const Hero = ({ hero }) => {
       ></img>
       <div className="card-body">
         <h4>{hero.superhero}</h4>
-        <button
+        {user?.id &&
+
+         <button
           className={`btn ${
             isFavorite ? "btn-success" : "btn-outline-primary"
           } `}
+          onClick={() => toggleFavoriteHeroToUser(hero.id)}
         >
           favorite
         </button>
+        }
+        
       </div>
-      <h1>Hero</h1>
     </div>
   );
 };
